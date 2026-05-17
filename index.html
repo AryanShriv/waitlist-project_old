@@ -4,336 +4,1488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrustLayer | The Trust-First Talent Platform</title>
+    <title>G(Old) — Where Experience Meets Opportunity</title>
     <meta name="description"
-        content="Verified freelancers, AI-powered matching, and curated talent for high-growth startups. Hire with confidence.">
-
-    <!-- Fonts -->
+        content="G(Old) connects you with professionals who've spent decades mastering their craft — so their experience becomes your unfair advantage.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+        :root {
+            --gold: #BA7517;
+            --gold-light: #FAEEDA;
+            --gold-mid: #EF9F27;
+            --gold-dark: #633806;
+            --gold-darkest: #412402;
+            --text: #1a1a18;
+            --text-2: #5a5a55;
+            --text-3: #9a9a94;
+            --bg: #ffffff;
+            --bg-2: #f7f6f2;
+            --border: rgba(26, 26, 24, 0.1);
+            --border-2: rgba(26, 26, 24, 0.18);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-pill: 99px;
+        }
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo .paren {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-2);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--text);
+            color: var(--bg);
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.85;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--text);
+            transition: all 0.3s;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 6rem 5% 5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(180deg, #fffdf7 0%, #ffffff 100%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--gold-light);
+            color: var(--gold-dark);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px 14px;
+            border-radius: var(--radius-pill);
+            letter-spacing: 0.3px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(40px, 6vw, 68px);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.25rem;
+            color: var(--text);
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--text-2);
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background: var(--text);
+            color: var(--bg);
+            padding: 13px 28px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.85;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            padding: 13px 28px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 500;
+            border: 1px solid var(--border-2);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-2);
+        }
+
+        .hero-trust {
+            font-size: 13px;
+            color: var(--text-3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-trust .dot {
+            width: 3px;
+            height: 3px;
+            background: var(--text-3);
+            border-radius: 50%;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 5rem 5%;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-3);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(26px, 3.5vw, 38px);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .section-sub {
+            font-size: 16px;
+            color: var(--text-2);
+            max-width: 520px;
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── PROBLEM ── */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .prob-card {
+            background: var(--bg-2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .prob-card h3 {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .prob-card p {
+            font-size: 14px;
+            color: var(--text-2);
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        .prob-transition {
+            margin-top: 2.5rem;
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        /* ── STORY ── */
+        .story-block {
+            background: var(--gold-light);
+            border-radius: var(--radius);
+            padding: 2.5rem 3rem;
+            border-left: 4px solid var(--gold);
+            max-width: 680px;
+        }
+
+        .story-block p {
+            font-family: 'Fraunces', serif;
+            font-size: 18px;
+            line-height: 1.85;
+            color: var(--gold-dark);
+            font-weight: 300;
+        }
+
+        .story-block p strong {
+            font-weight: 500;
+            color: var(--gold-darkest);
+        }
+
+        /* ── STEPS ── */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .step-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            position: relative;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .step-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .step-num {
+            font-family: 'Fraunces', serif;
+            font-size: 13px;
+            color: var(--text-3);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: var(--text-2);
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        /* ── TWO SIDES ── */
+        .sides-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .expert-side {
+            background: var(--gold-light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid rgba(186, 117, 23, 0.2);
+        }
+
+        .expert-side h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--gold-darkest);
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .expert-side>p {
+            font-size: 14px;
+            color: var(--gold-dark);
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .vp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 1.75rem;
+        }
+
+        .vp-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .vp-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--gold-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .vp-text h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gold-darkest);
+        }
+
+        .vp-text p {
+            font-size: 13px;
+            color: var(--gold-dark);
+            font-weight: 300;
+            margin: 2px 0 0;
+        }
+
+        .btn-gold {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--gold);
+            color: white;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn-gold:hover {
+            opacity: 0.88;
+        }
+
+        .side-note {
+            font-size: 12px;
+            color: var(--gold-dark);
+            text-align: center;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .user-side {
+            background: var(--bg-2);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .user-side h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .user-side>p {
+            font-size: 14px;
+            color: var(--text-2);
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-tiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 1.75rem;
+        }
+
+        .user-tile {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .user-tile:hover {
+            border-color: var(--text-2);
+        }
+
+        .user-tile h4 {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .user-tile p {
+            font-size: 12px;
+            color: var(--text-2);
+            line-height: 1.55;
+            font-weight: 300;
+        }
+
+        .btn-dark-full {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--text);
+            color: var(--bg);
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn-dark-full:hover {
+            opacity: 0.85;
+        }
+
+        /* ── FORMS ── */
+        .forms-section {
+            padding: 5rem 5%;
+            background: var(--bg-2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .forms-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .forms-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(26px, 3.5vw, 38px);
+            font-weight: 400;
+            letter-spacing: -1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .forms-header p {
+            font-size: 15px;
+            color: var(--text-2);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .form-card-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .form-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .form-card .form-sub {
+            font-size: 13px;
+            color: var(--text-3);
+            font-weight: 300;
+        }
+
+        .form-field {
+            margin-bottom: 14px;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-2);
+            margin-bottom: 5px;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-2);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            outline: none;
+            transition: border-color 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(186, 117, 23, 0.1);
+        }
+
+        .form-field textarea {
+            resize: none;
+            height: 80px;
+            line-height: 1.6;
+        }
+
+        .form-field select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239a9a94' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 32px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-submit {
+            margin-top: 6px;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: var(--text-3);
+            text-align: center;
+            margin-top: 10px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: #EAF3DE;
+            border-radius: var(--radius-sm);
+            margin-top: 1rem;
+        }
+
+        .form-success .success-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .form-success h4 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #27500A;
+            margin-bottom: 4px;
+        }
+
+        .form-success p {
+            font-size: 14px;
+            color: #3B6D11;
+            font-weight: 300;
+        }
+
+        /* ── FAQ ── */
+        .faq-list {
+            max-width: 680px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-btn {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 1.25rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            gap: 1rem;
+        }
+
+        .faq-q {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .faq-arrow {
+            font-size: 18px;
+            color: var(--text-3);
+            transition: transform 0.25s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(45deg);
+        }
+
+        .faq-body {
+            font-size: 14px;
+            color: var(--text-2);
+            line-height: 1.75;
+            font-weight: 300;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.25s;
+        }
+
+        .faq-item.open .faq-body {
+            max-height: 300px;
+            padding-bottom: 1.25rem;
+        }
+
+        /* ── CLOSING ── */
+        .closing {
+            padding: 6rem 5%;
+            text-align: center;
+            background: var(--gold-light);
+            border-bottom: 1px solid rgba(186, 117, 23, 0.2);
+        }
+
+        .closing h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 4vw, 46px);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            color: var(--gold-darkest);
+            margin-bottom: 1rem;
+        }
+
+        .closing p {
+            font-size: 16px;
+            color: var(--gold-dark);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .closing-ctas {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold-lg {
+            background: var(--gold);
+            color: white;
+            padding: 14px 32px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            display: inline-block;
+        }
+
+        .btn-gold-lg:hover {
+            opacity: 0.88;
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            color: var(--gold-darkest);
+            padding: 14px 32px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 500;
+            border: 1px solid rgba(186, 117, 23, 0.4);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-outline-dark:hover {
+            background: rgba(186, 117, 23, 0.1);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 2.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo-wrap .logo {
+            font-size: 20px;
+        }
+
+        .footer-by {
+            font-size: 12px;
+            color: var(--text-3);
+            margin: 3px 0;
+        }
+
+        .footer-tagline {
+            font-size: 12px;
+            color: var(--text-3);
+            font-style: italic;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            margin-bottom: 8px;
+            justify-content: flex-end;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-3);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-3);
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1.25rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1.25rem;
+                z-index: 99;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 4rem 1.25rem 3rem;
+            }
+
+            section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .forms-section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .sides-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .forms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-block {
+                padding: 1.75rem;
+            }
+
+            .story-block p {
+                font-size: 16px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+
+            .closing {
+                padding: 4rem 1.25rem;
+            }
+
+            .user-tiles {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">2AM<span class="text-gradient">Creations</span></div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#trust-layer">Trust Infrastructure</a>
-                <a href="#faq">FAQ</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <i data-lucide="moon"></i>
-                </button>
-                <a href="#waitlist" style="color: white" class="btn btn-primary">Join Early Access</a>
-            </div>
-        </div>
+    <!-- NAV -->
+    <nav id="top">
+        <a href="#top" class="logo">G<span class="paren">(</span>Old<span class="paren">)</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#for-experts">For experts</a></li>
+            <li><a href="#for-users">For users</a></li>
+            <li><a href="#waitlist" class="nav-cta" style="color: white;">Join early access</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <header class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content reveal">
-                    <h1 class="hero-headline">Hiring talent online shouldn't be a <span class="text-gradient">trust
-                            gamble.</span></h1>
-                    <p class="hero-subheadline">We verify skills, validate credibility, and intelligently match startups
-                        with high-quality talent.</p>
-                    <div class="hero-ctas">
-                        <a href="#waitlist" class="btn btn-primary">I'm Hiring</a>
-                        <a href="#waitlist" class="btn btn-outline">I'm a Freelancer</a>
-                    </div>
-                    <div class="trust-badges">
-                        <div class="trust-badge"><i data-lucide="zap"></i> AI Matching</div>
-                        <div class="trust-badge"><i data-lucide="shield-check"></i> Verified Profiles</div>
-                        <div class="trust-badge"><i data-lucide="users"></i> Curated Network</div>
-                    </div>
-                </div>
-                <div class="hero-visual reveal" style="transition-delay: 0.2s;">
-                    <img src="hero-mockup.png" alt="TrustLayer Dashboard Mockup" class="hero-image">
-                </div>
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Launching in India &amp; Toronto</div>
+        <h1>Thirty years<br>can't be <em>Googled.</em></h1>
+        <p class="hero-sub">G(Old) connects you with professionals who've spent decades mastering their craft — so their
+            experience becomes your unfair advantage.</p>
+        <div class="hero-ctas">
+            <a href="#waitlist" class="btn-primary">I need an expert →</a>
+            <a href="#waitlist" class="btn-outline">I'm an expert, join →</a>
+        </div>
+        <div class="hero-trust">
+            <span>By invite only</span>
+            <span class="dot"></span>
+            <span>Free to browse</span>
+            <span class="dot"></span>
+            <span>Every expert personally verified</span>
+        </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <section>
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">The internet gave you information.<br>It never gave you wisdom.</h2>
+        <div class="problem-grid">
+            <div class="prob-card">
+                <h3>YouTube has tutorials.</h3>
+                <p>Not the judgment calls that come from getting it wrong twelve times before getting it right.</p>
+            </div>
+            <div class="prob-card">
+                <h3>Google has answers.</h3>
+                <p>Not the hard-won instincts that only come from thirty years in the field.</p>
+            </div>
+            <div class="prob-card">
+                <h3>LinkedIn has profiles.</h3>
+                <p>Not real access to the people behind them.</p>
             </div>
         </div>
-    </header>
+        <p class="prob-transition">G(Old) changes that.</p>
+    </section>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title reveal">The internet made hiring global.<br>It also made <span
-                    class="text-gradient">trust harder.</span></h2>
-            <div class="problem-grid">
-                <div class="problem-card glass reveal">
-                    <div class="card-icon"><i data-lucide="file-warning"></i></div>
-                    <h3>Fake Portfolios</h3>
-                    <p>Stop wasting time on candidates with inflated or stolen work history.</p>
-                </div>
-                <div class="problem-card glass reveal" style="transition-delay: 0.1s;">
-                    <div class="card-icon"><i data-lucide="message-square"></i></div>
-                    <h3>Bidding Noise</h3>
-                    <p>Skip the chaos of hundreds of low-quality, automated proposals.</p>
-                </div>
-                <div class="problem-card glass reveal" style="transition-delay: 0.2s;">
-                    <div class="card-icon"><i data-lucide="target"></i></div>
-                    <h3>Mismatched Skills</h3>
-                    <p>AI-driven validation ensures talent actually possesses the skills they claim.</p>
-                </div>
-                <div class="problem-card glass reveal" style="transition-delay: 0.3s;">
-                    <div class="card-icon"><i data-lucide="clock"></i></div>
-                    <h3>Slow Decisions</h3>
-                    <p>Reduce hiring time from weeks to days with pre-vetted, ready-to-work talent.</p>
-                </div>
+    <!-- STORY -->
+    <section>
+        <div class="section-label">The Story</div>
+        <h2 class="section-title">Here's what G(Old) actually looks like.</h2>
+        <div class="story-block">
+            <p>
+                Imagine you're in Toronto. You just bought a home and your basement floor needs fixing.<br><br>
+                You come to G(Old). You find a retired tiling expert two neighbourhoods away. He pings you —<br><br>
+                <strong>"I'll be there. We'll do this together."</strong><br><br>
+                You didn't just get a helping hand. You got thirty years of practical knowledge that no tutorial could
+                ever give you.<br><br>
+                And on the other side — that expert got paid, got a reason to leave the house, and got back into a
+                routine that made him feel useful again.<br><br>
+                <strong>That's G(Old).</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Simple for everyone involved.</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <h3>Browse freely</h3>
+                <p>Explore expert profiles without signing up. See their career, their domain, and exactly what they can
+                    help you with.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <h3>Find your person</h3>
+                <p>Someone who's spent decades doing exactly what you're trying to figure out. Not a generalist. The
+                    real thing.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <h3>Request a session</h3>
+                <p>Remote mentorship, a structured session, or on-site hands-on help — depending on what you actually
+                    need.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">04</div>
+                <h3>Learn by doing</h3>
+                <p>Not a lecture. A real conversation with someone who's been there. Walk away with clarity, not just
+                    notes.</p>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="section">
-        <div class="container">
-            <h2 class="section-title reveal">How TrustLayer Works</h2>
-            <div class="workflow-grid reveal">
-                <div class="workflow-step">
-                    <span class="step-number">01</span>
-                    <h3>Verification</h3>
-                    <p>Freelancers undergo deep technical and background verification.</p>
+    <!-- TWO SIDES -->
+    <section>
+        <div class="section-label">Both Sides</div>
+        <h2 class="section-title">Built for the expert and the learner equally.</h2>
+        <div class="sides-grid">
+
+            <div class="expert-side" id="for-experts">
+                <h2>You spent decades building something. Don't let it retire with you.</h2>
+                <p>G(Old) gives your experience a second life — on your terms, your schedule, your way.</p>
+                <div class="vp-list">
+                    <div class="vp-item">
+                        <div class="vp-icon">🕐</div>
+                        <div class="vp-text">
+                            <h4>Your schedule, always</h4>
+                            <p>Set your availability. Step back whenever you need to.</p>
+                        </div>
+                    </div>
+                    <div class="vp-item">
+                        <div class="vp-icon">💛</div>
+                        <div class="vp-text">
+                            <h4>Earn doing what you love</h4>
+                            <p>Get paid for knowledge you spent a lifetime building. No bidding wars.</p>
+                        </div>
+                    </div>
+                    <div class="vp-item">
+                        <div class="vp-icon">🔥</div>
+                        <div class="vp-text">
+                            <h4>Stay in the game</h4>
+                            <p>Stay connected to your craft and the next generation that needs it.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="workflow-step">
-                    <span class="step-number">02</span>
-                    <h3>AI Matching</h3>
-                    <p>Our algorithms evaluate project needs against verified skillsets.</p>
+                <a href="#waitlist" class="btn-gold">Join as an expert →</a>
+                <p class="side-note">Every application is personally reviewed. Your credibility is protected.</p>
+            </div>
+
+            <div class="user-side" id="for-users">
+                <h2>Stop guessing. Start learning from someone who's already done it.</h2>
+                <p>Whether you're a founder, a student, a company, or a homeowner — there's someone on G(Old) who's been
+                    exactly where you are.</p>
+                <div class="user-tiles">
+                    <div class="user-tile">
+                        <h4>Startup founders</h4>
+                        <p>Real strategy from people who've actually scaled companies.</p>
+                    </div>
+                    <div class="user-tile">
+                        <h4>Students</h4>
+                        <p>Career guidance from people who've lived the path you're choosing.</p>
+                    </div>
+                    <div class="user-tile">
+                        <h4>Companies &amp; teams</h4>
+                        <p>Training from people who've been in the room where it happened.</p>
+                    </div>
+                    <div class="user-tile">
+                        <h4>Homeowners</h4>
+                        <p>Hands-on help from people who've done the job a hundred times.</p>
+                    </div>
                 </div>
-                <div class="workflow-step">
-                    <span class="step-number">03</span>
-                    <h3>Curated Selection</h3>
-                    <p>Clients receive a top-3 shortlist of perfectly matched talent.</p>
+                <a href="#waitlist" class="btn-dark-full">Find your expert →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WAITLIST FORMS -->
+    <div class="forms-section" id="waitlist">
+        <div class="forms-header">
+            <h2>Get early access to G(Old).</h2>
+            <p>We're onboarding carefully — to protect quality on both sides.<br>Join the waitlist and we'll reach out
+                personally.</p>
+        </div>
+        <div class="forms-grid">
+
+            <!-- EXPERT FORM -->
+            <div class="form-card">
+                <div class="form-card-header">
+                    <h3>I'm an expert</h3>
+                    <div class="form-sub">Join as a verified professional</div>
                 </div>
-                <div class="workflow-step">
-                    <span class="step-number">04</span>
-                    <h3>Secure Launch</h3>
-                    <p>Collaborate via structured workflows and trust-guaranteed milestones.</p>
+                <form id="expertForm">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="e-name">Full name</label>
+                            <input type="text" id="e-name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="e-email">Email address</label>
+                            <input type="email" id="e-email" placeholder="you@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="e-domain">Your domain or field</label>
+                        <input type="text" id="e-domain"
+                            placeholder="e.g. Finance, Civil Engineering, Tiling, Education..." required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="e-exp">Years of experience</label>
+                            <select id="e-exp" required>
+                                <option value="" disabled selected>Select range</option>
+                                <option>20–25 years</option>
+                                <option>25–30 years</option>
+                                <option>30–35 years</option>
+                                <option>35+ years</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="e-country">Country</label>
+                            <select id="e-country" required>
+                                <option value="" disabled selected>Select</option>
+                                <option>India</option>
+                                <option>Canada</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="e-city">City</label>
+                        <input type="text" id="e-city" placeholder="Your city" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="e-career">What did you spend your career doing?</label>
+                        <textarea id="e-career" placeholder="Brief overview — roles, industries, what you built or led."
+                            required></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label for="e-help">What can you specifically help people with?</label>
+                        <textarea id="e-help"
+                            placeholder="Be specific. 'Help founders build financial models' is better than 'Finance advice.'"
+                            required></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label for="e-engage">How would you like to engage?</label>
+                        <select id="e-engage" required>
+                            <option value="" disabled selected>Select type</option>
+                            <option>Remote sessions (video call)</option>
+                            <option>On-site / hands-on (same city)</option>
+                            <option>Both</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="e-link">LinkedIn / Portfolio (optional)</label>
+                        <input type="url" id="e-link" placeholder="https://linkedin.com/in/...">
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn-gold" style="width:100%; padding:13px;">Request expert access
+                            →</button>
+                    </div>
+                    <p class="form-note">Every application is personally reviewed. You'll hear from us within 48 hours.
+                    </p>
+                </form>
+                <div class="form-success" id="expertSuccess">
+                    <div class="success-icon">✓</div>
+                    <h4>Application received.</h4>
+                    <p>We'll review your profile and reach out within 48 hours. Thank you for wanting to share what
+                        you've built.</p>
                 </div>
+            </div>
+
+            <!-- USER FORM -->
+            <div class="form-card">
+                <div class="form-card-header">
+                    <h3>I need an expert</h3>
+                    <div class="form-sub">Find someone who's done it before</div>
+                </div>
+                <form id="userForm">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="u-name">Full name</label>
+                            <input type="text" id="u-name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="u-email">Email address</label>
+                            <input type="email" id="u-email" placeholder="you@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="u-type">I am a...</label>
+                        <select id="u-type" required>
+                            <option value="" disabled selected>Select</option>
+                            <option>Startup founder</option>
+                            <option>Student or early-career professional</option>
+                            <option>Company or team</option>
+                            <option>Individual / homeowner</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="u-problem">What are you trying to figure out or get done?</label>
+                        <textarea id="u-problem"
+                            placeholder="Tell us the problem, not just the category. The more specific, the better we can match you."
+                            required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="u-country">Country</label>
+                            <select id="u-country" required>
+                                <option value="" disabled selected>Select</option>
+                                <option>India</option>
+                                <option>Canada</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="u-city">City</label>
+                            <input type="text" id="u-city" placeholder="Your city" required>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="u-urgency">How soon do you need help?</label>
+                        <select id="u-urgency" required>
+                            <option value="" disabled selected>Select</option>
+                            <option>Right now</option>
+                            <option>Within the next month</option>
+                            <option>Just exploring for now</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="u-company">Company / Institution name (optional)</label>
+                        <input type="text" id="u-company" placeholder="If applicable">
+                    </div>
+                    <div class="form-field">
+                        <label for="u-hear">How did you hear about G(Old)? (optional)</label>
+                        <input type="text" id="u-hear" placeholder="Word of mouth, LinkedIn, etc.">
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn-dark-full" style="padding:13px;">Join the waitlist →</button>
+                    </div>
+                    <p class="form-note">No spam. Ever. We'll reach out when a matched expert is available for you.</p>
+                </form>
+                <div class="form-success" id="userSuccess">
+                    <div class="success-icon">✓</div>
+                    <h4>You're on the list.</h4>
+                    <p>We'll reach out as soon as a matched expert is available. Thank you for trusting G(Old) with your
+                        problem.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <section>
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Questions we get asked.</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-btn">
+                    <span class="faq-q">Is G(Old) only for tech and business?</span>
+                    <span class="faq-arrow">+</span>
+                </button>
+                <div class="faq-body">Not at all. G(Old) is for any domain where experience matters — finance,
+                    engineering, trades, education, manufacturing, law, agriculture, and more. If someone has spent
+                    decades mastering it, it belongs on G(Old).</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">
+                    <span class="faq-q">How are experts verified?</span>
+                    <span class="faq-arrow">+</span>
+                </button>
+                <div class="faq-body">Every expert is manually reviewed by our team before their profile goes live. We
+                    look at career history, domain credibility, and communication ability. Not everyone who applies will
+                    be accepted — and that's intentional.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">
+                    <span class="faq-q">What does it cost?</span>
+                    <span class="faq-arrow">+</span>
+                </button>
+                <div class="faq-body">Browsing is always free. Session pricing is set by each expert and varies by
+                    domain and format. We're committed to keeping it significantly more accessible than traditional
+                    consulting — without compromising on quality.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">
+                    <span class="faq-q">I'm retired and not very tech-savvy. Can I still join as an expert?</span>
+                    <span class="faq-arrow">+</span>
+                </button>
+                <div class="faq-body">Absolutely — that's exactly who G(Old) is built for. Our onboarding team will walk
+                    you through everything personally. You bring the experience. We handle the rest.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">
+                    <span class="faq-q">Which countries is G(Old) available in?</span>
+                    <span class="faq-arrow">+</span>
+                </button>
+                <div class="faq-body">We're launching in India and Canada (Toronto) first. If you're outside these
+                    regions, join the waitlist anyway — we're expanding soon and want to know where demand is strongest.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">
+                    <span class="faq-q">What's the difference between a session and on-site help?</span>
+                    <span class="faq-arrow">+</span>
+                </button>
+                <div class="faq-body">A session is a remote video call — structured, focused, time-bound. On-site is
+                    physical — the expert comes to you, and you work together in person. On-site is currently available
+                    in Toronto only.</div>
             </div>
         </div>
     </section>
 
-    <section id="trust-layer" class="section trust-layer">
-        <div class="container">
-            <div class="reveal">
-                <h2 class="section-title">Built around <span class="text-gradient">trust infrastructure.</span></h2>
-                <p style="text-align: center; color: var(--secondary-text); max-width: 700px; margin: -2rem auto 4rem;">
-                    Our proprietary Trust Engine analyzes thousands of signals to ensure every match is built on a
-                    foundation of verifiable data.</p>
-            </div>
-
-            <div class="trust-features">
-                <div class="reveal">
-                    <div class="problem-card glass" style="margin-bottom: 1.5rem;">
-                        <div class="card-icon"><i data-lucide="code-2"></i></div>
-                        <h3>Code & Work Validation</h3>
-                        <p>Direct integration with GitHub, Figma, and Behance to verify genuine contribution history and
-                            ownership.</p>
-                    </div>
-                    <div class="problem-card glass">
-                        <div class="card-icon"><i data-lucide="fingerprint"></i></div>
-                        <h3>Identity Verification</h3>
-                        <p>Bank-grade identity checks and biometric verification to eliminate ghosting and fraudulent
-                            profiles.</p>
-                    </div>
-                </div>
-                <div class="reveal" style="transition-delay: 0.2s;">
-                    <div class="problem-card glass" style="margin-bottom: 1.5rem;">
-                        <div class="card-icon"><i data-lucide="cpu"></i></div>
-                        <h3>AI Credibility Scoring</h3>
-                        <p>Continuously updated reputation signals based on cross-platform proof-of-work and project
-                            outcomes.</p>
-                    </div>
-                    <div class="problem-card glass">
-                        <div class="card-icon"><i data-lucide="bar-chart-3"></i></div>
-                        <h3>Reputation Portability</h3>
-                        <p>Your trust score follows you, built on real-world performance, not just five-star ratings.
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <!-- CLOSING -->
+    <div class="closing">
+        <h2>Some knowledge only comes with time.<br>We made it come with a conversation.</h2>
+        <p>G(Old) is almost ready. Be among the first in.</p>
+        <div class="closing-ctas">
+            <a href="#waitlist" class="btn-gold-lg">I'm an expert →</a>
+            <a href="#waitlist" class="btn-outline-dark">I need an expert →</a>
         </div>
-    </section>
+    </div>
 
-    <section id="waitlist" class="section">
-        <div class="container">
-            <div class="waitlist-grid">
-                <div class="waitlist-card glass reveal">
-                    <h2 style="margin-bottom: 1rem;">For Freelancers</h2>
-                    <p style="color: var(--secondary-text); margin-bottom: 2rem;">Join the elite 1% of talent and skip
-                        the bidding wars.</p>
-                    <form id="freelancer-form">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" name="email" placeholder="john@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Primary Skill</label>
-                            <input type="text" name="skill" placeholder="e.g. Fullstack Developer, Product Designer" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Years of Experience</label>
-                            <input type="number" name="experience" placeholder="5" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Portfolio / GitHub URL</label>
-                            <input type="url" name="portfolio" placeholder="https://github.com/johndoe" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Biggest project you've worked on?</label>
-                            <textarea name="project" rows="3" placeholder="Briefly describe your impact..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Request Early Access</button>
-                    </form>
-                </div>
-
-                <div class="waitlist-card glass reveal" style="transition-delay: 0.2s;">
-                    <h2 style="margin-bottom: 1rem;">For Users</h2>
-                    <p style="color: var(--secondary-text); margin-bottom: 2rem;">Hire vetted, high-quality talent
-                        without the friction.</p>
-                    <form id="startup-form">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="name" placeholder="Sarah Smith" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Company Name(In case of Startup/Company/Institute)</label>
-                            <input type="text" name="company" placeholder="Acme Inc" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Team Size</label>
-                            <input type="text" name="team_size" placeholder="10-50" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Hiring Needs</label>
-                            <input type="text" name="hiring_needs" placeholder="e.g. React Developers, UI Designers" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Biggest hiring challenge?</label>
-                            <textarea name="challenge" rows="3" placeholder="Tell us what you struggle with..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Join Hiring Waitlist</button>
-                    </form>
-                </div>
-            </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo-wrap">
+            <a href="#top" class="logo">G<span class="paren">(</span>Old<span class="paren">)</span></a>
+            <div class="footer-by">by 2AM Creations</div>
+            <div class="footer-tagline">Built with respect for the people who've already done it.</div>
         </div>
-    </section>
-
-    <section class="section">
-        <div class="container reveal">
-            <div class="problem-grid" style="text-align: center;">
-                <div>
-                    <h4 style="font-size: 2.5rem;">MVP</h4>
-                    <p style="color: var(--secondary-text);">Ready & Testing</p>
-                </div>
-                <div>
-                    <h4 style="font-size: 2.5rem;">Q3 2024</h4>
-                    <p style="color: var(--secondary-text);">Early Access Opening</p>
-                </div>
-                <div>
-                    <h4 style="font-size: 2.5rem;">500+</h4>
-                    <p style="color: var(--secondary-text);">Curated Talent</p>
-                </div>
-                <div>
-                    <h4 style="font-size: 2.5rem;">100%</h4>
-                    <p style="color: var(--secondary-text);">Trust-First Matching</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="section">
-        <div class="container">
-            <h2 class="section-title reveal">Frequently Asked Questions</h2>
-            <div class="faq-list reveal">
-                <div class="faq-item">
-                    <button class="faq-question">How is talent verified? <i data-lucide="chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>We use a multi-step process including identity verification, technical skills assessments,
-                            code repository analysis, and professional background checks.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Is this only for startups? <i data-lucide="chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>While our core focus is on high-growth startups, we work with any organization that values
-                            speed, quality, and verified expertise.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">How is this different from Upwork? <i
-                            data-lucide="chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>Unlike open marketplaces, TrustLayer is curated. We eliminate bidding wars and noise by using
-                            AI to match you only with the top 1% of verified talent.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">When will access open? <i data-lucide="chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>We are currently in a private beta. Joining the waitlist gives you priority access as we
-                            scale our network in Q3 2024.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">How does AI matching work? <i data-lucide="chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>Our AI analyzes project requirements against verified developer signatures, work history, and
-                            soft skill assessments to predict compatibility with 95% accuracy.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section"
-        style="background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);">
-        <div class="container reveal" style="text-align: center;">
-            <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">The future of hiring starts with <span
-                    class="text-gradient">trust.</span></h2>
-            <div class="hero-ctas" style="justify-content: center;">
-                <a href="#waitlist" class="btn btn-primary">Join as Freelancer</a>
-                <a href="#waitlist" class="btn btn-outline">Hire Verified Talent</a>
-            </div>
-        </div>
-    </section>
-
-    <footer style="padding: 4rem 0; border-top: 1px solid var(--border-color);">
-        <div class="container">
-            <div
-                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
-                <div class="logo">2AM<span class="text-gradient">Creations</span></div>
-                <div style="display: flex; gap: 2rem; color: var(--secondary-text); font-size: 0.9rem;">
-                    <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a>
-                    <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a>
-                    <a href="#" style="color: inherit; text-decoration: none;">Contact</a>
-                </div>
-                <div style="display: flex; gap: 1.5rem; color: var(--secondary-text);">
-                    <i data-lucide="twitter"></i>
-                    <i data-lucide="linkedin"></i>
-                    <i data-lucide="github"></i>
-                </div>
-            </div>
-            <p style="text-align: center; color: var(--secondary-text); font-size: 0.8rem; margin-top: 3rem;">© 2026
-                2AM Creations Inc. All rights reserved.</p>
+        <div class="footer-right">
+            <ul class="footer-links">
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#for-experts">For experts</a></li>
+                <li><a href="#for-users">For users</a></li>
+            </ul>
+            <div class="footer-copy">India · Canada · © 2026 2AM Creations. All rights reserved.</div>
         </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Form submissions
+        // IMPORTANT: Replace the fetch URLs below with your actual form endpoints
+        // The forms currently show a success state on submit
+        // Connect them to your backend or a service like Formspree / your own API
+
+        function handleFormSubmit(formId, successId) {
+            const form = document.getElementById(formId);
+            const success = document.getElementById(successId);
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button[type="submit"]');
+                btn.textContent = 'Sending...';
+                btn.style.opacity = '0.7';
+                btn.disabled = true;
+
+                // Collect form data
+                const data = Object.fromEntries(new FormData(form));
+
+                // ── CONNECT YOUR BACKEND HERE ──
+                // Example with your existing API:
+                // await fetch('YOUR_API_ENDPOINT', {
+                //   method: 'POST',
+                //   headers: { 'Content-Type': 'application/json' },
+                //   body: JSON.stringify({ formType: formId, ...data })
+                // });
+
+                // Simulate async (remove this timeout when connecting real API)
+                await new Promise(r => setTimeout(r, 800));
+
+                form.style.display = 'none';
+                success.style.display = 'block';
+            });
+        }
+
+        handleFormSubmit('expertForm', 'expertSuccess');
+        handleFormSubmit('userForm', 'userSuccess');
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
     </script>
-    <script src="main.js"></script>
 </body>
 
 </html>
